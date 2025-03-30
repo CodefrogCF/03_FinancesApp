@@ -14,7 +14,10 @@ if (isset($_POST['register'])) {
         $_SESSION['register-error'] = "Email already registered!";
         $_SESSION['active_form'] = 'register';
     } else {
+        $task_db = "tasks_$name";
         $conn->query("INSERT INTO users (name, email, password, role) VALUES ('$name', '$email', '$password', '$role')");
+        $conn->query("INSERT INTO users_tasks (user, task_db) VALUES ('$name', '$task_db')");
+        $conn->query("CREATE TABLE `usr_web33_2`.`$task_db` (`id` INT UNSIGNED NOT NULL AUTO_INCREMENT , `task_name` VARCHAR(255) NOT NULL , `task_value` FLOAT NOT NULL , `task_schedule` VARCHAR(255) NOT NULL , `task_isActive` VARCHAR(10) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;");
     }
 
     header("Location: index.php");
