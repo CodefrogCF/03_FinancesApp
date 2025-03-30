@@ -6,6 +6,10 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
+require_once 'config.php';
+$name = $_SESSION['name'];
+$tasks = $conn->query("SELECT task_name, task_value, task_schedule, task_isActive FROM `usr_web33_2`.`tasks_$name`");
+
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +36,7 @@ if (!isset($_SESSION['email'])) {
             <div class="box">
                 <h1 class="welcome-text">Welcome, <span><?= $_SESSION['name'] ?></span></h1>
                 <p>This is an <span>user</span> page</p>
+                <p><?php while ($row = $tasks->fetch_assoc()) {echo $row['task_name']."<br>";} ?></p>
                 <button onclick="window.location.href='logout.php'">Logout</button>
             </div>
         </div>
