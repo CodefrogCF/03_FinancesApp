@@ -4,7 +4,7 @@ session_start();
 
 $errors = [
     'login' => $_SESSION['login_error'] ?? '',
-    'register' => $_SESSION['register-error'] ?? ''
+    'register' => $_SESSION['register-errors'] ?? []
 ];
 
 $activeForm = $_SESSION['active_form'] ?? 'login';
@@ -18,7 +18,6 @@ function showError($error) {
 function isActiveForm($formName, $activeForm) {
     return $formName === $activeForm ? 'active' : '';
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +30,6 @@ function isActiveForm($formName, $activeForm) {
     <link rel="icon" href="./assets/favicon.ico">
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
     <div class="header">
@@ -40,7 +38,7 @@ function isActiveForm($formName, $activeForm) {
     </div>
     <div class="container">
 
-<!-- LOGIN FORM -->
+        <!-- LOGIN FORM -->
         <div class="form-box <?= isActiveForm('login', $activeForm); ?>" id="login-form">
             <form action="login_register.php" method="post">
                 <h2>Login</h2>
@@ -52,11 +50,17 @@ function isActiveForm($formName, $activeForm) {
             </form>
         </div>
 
-<!-- REGISTER FORM -->
+        <!-- REGISTER FORM -->
         <div class="form-box <?= isActiveForm('register', $activeForm); ?>" id="register-form">
             <form action="login_register.php" method="post">
                 <h2>Register</h2>
-                <?= showError($errors['register']); ?>
+                <?php
+                if (!empty($errors['register'])) {
+                    foreach ($errors['register'] as $error) {
+                        echo showError($error);
+                    }
+                }
+                ?>
                 <input type="text" autocomplete="username" placeholder="Username" name="name" required>
                 <input type="email" autocomplete="email" placeholder="Email" name="email" required>
                 <input type="password" autocomplete="off" spellcheck="false" placeholder="Password" name="password" required>
@@ -73,5 +77,4 @@ function isActiveForm($formName, $activeForm) {
 
     <script src="main.js"></script>
 </body>
-
-</html> 
+</html>
