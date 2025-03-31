@@ -18,6 +18,7 @@ if (isset($_POST['register'])) {
         $conn->query("INSERT INTO users (name, email, password, role) VALUES ('$name', '$email', '$password', '$role')");
         $conn->query("INSERT INTO users_tasks (user, task_db) VALUES ('$name', '$task_db')");
         $conn->query("CREATE TABLE `usr_web33_2`.`$task_db` (`id` INT UNSIGNED NOT NULL AUTO_INCREMENT , `task_name` VARCHAR(255) NOT NULL , `task_value` FLOAT NOT NULL , `task_schedule` VARCHAR(255) NOT NULL , `task_isActive` VARCHAR(10) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;");
+        $conn->query("INSERT INTO tasks_$name (task_name, task_value, task_schedule, task_isActive) VALUES ('Test-Task', '12.34', 'monthly', 'inactive')");
     }
 
     header("Location: index.php");
