@@ -18,6 +18,10 @@ if (isset($_POST['register'])) {
         $errors[] = "Email already registered!";
     }
 
+    if (!preg_match("/^[a-zA-Z0-9_]+$/", $name)) {
+        $errors[] = "Username can only contain letters, numbers, and underscores!";
+    }
+
     if (strlen($password) < 8) {
         $errors[] = "Password must be at least 8 characters long!";
     }
