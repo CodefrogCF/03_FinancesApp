@@ -6,6 +6,7 @@ $errors = [
     'login' => $_SESSION['login_error'] ?? '',
     'register' => $_SESSION['register-error'] ?? ''
 ];
+
 $activeForm = $_SESSION['active_form'] ?? 'login';
 
 session_unset();
@@ -56,9 +57,10 @@ function isActiveForm($formName, $activeForm) {
             <form action="login_register.php" method="post">
                 <h2>Register</h2>
                 <?= showError($errors['register']); ?>
-                <input type="text" autocomplete="username" placeholder="Name" name="name" required>
+                <input type="text" autocomplete="username" placeholder="Username" name="name" required>
                 <input type="email" autocomplete="email" placeholder="Email" name="email" required>
-                <input type="password" autocomplete="off" spellcheck="false"placeholder="Password" name="password" required>
+                <input type="password" autocomplete="off" spellcheck="false" placeholder="Password" name="password" required>
+                <input type="password" autocomplete="off" spellcheck="false" placeholder="Confirm password" name="confirm_password" required>
                 <button type="submit" name="register">Register</button>
                 <p>Already have an account? <a href="#" onclick="showForm('login-form')">Login</a></p>
             </form>
