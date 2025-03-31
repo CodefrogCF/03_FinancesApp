@@ -44,6 +44,10 @@ if (isset($_POST['register'])) {
             die("Username is required!");
         }
         
+        if ( ! preg_match("/^[a-zA-Z0-9_]+$/", $_POST['name'])) {
+            die("Username can only contain letters, numbers, and underscores!");
+        }
+        
         if ( ! filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             die("Invalid email address!");
         }
