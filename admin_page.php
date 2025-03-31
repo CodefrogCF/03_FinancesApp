@@ -6,6 +6,11 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
+if (!isset($_SESSION['role' === 'admin'])) {
+    header("Location: user_page.php");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>

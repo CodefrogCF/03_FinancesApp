@@ -37,6 +37,7 @@ $tasks = $conn->query("SELECT task_name, task_value, task_schedule, task_isActiv
                 <h1 class="welcome-text">Welcome, <span><?= $_SESSION['name'] ?></span></h1>
                 <p>This is an <span>user</span> page</p>
                 <p><?php while ($row = $tasks->fetch_assoc()) {echo(implode(", ", $row)."<br>");} ?></p>
+                <button>Add task</button>
                 <button onclick="window.location.href='logout.php'">Logout</button>
             </div>
         </div>
