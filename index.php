@@ -44,8 +44,8 @@ function isActiveForm($formName, $activeForm) {
             <form action="login_register.php" method="post">
                 <h2>Login</h2>
                 <?= showError($errors['login']); ?>
-                <input type="email" autocomplete="on email" placeholder="Email" name="email" required>
-                <input type="password" placeholder="Password" name="password" required>
+                <input type="email" autocomplete="email" placeholder="Email" name="email" required>
+                <input type="password" autocomplete="off" spellcheck="false" placeholder="Password" name="password" required>
                 <button type="submit" name="login">Login</button>
                 <p>Don't have an account? <a href="#" onclick="showForm('register-form')">Sign Up</a></p>
             </form>
@@ -56,9 +56,9 @@ function isActiveForm($formName, $activeForm) {
             <form action="login_register.php" method="post">
                 <h2>Register</h2>
                 <?= showError($errors['register']); ?>
-                <input type="text" autocomplete="on username" placeholder="Name" name="name" required>
-                <input type="email" autocomplete="on email" placeholder="Email" name="email" required>
-                <input type="password" placeholder="Password" name="password" required>
+                <input type="text" autocomplete="username" placeholder="Name" name="name" required>
+                <input type="email" autocomplete="email" placeholder="Email" name="email" required>
+                <input type="password" autocomplete="off" spellcheck="false"placeholder="Password" name="password" required>
                 <button type="submit" name="register">Register</button>
                 <p>Already have an account? <a href="#" onclick="showForm('login-form')">Login</a></p>
             </form>
