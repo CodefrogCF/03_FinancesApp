@@ -2,33 +2,7 @@
 
 session_start();
 require_once 'config.php';
-/*
-if (empty($_POST['name'])) {
-    die("Username is required!");
-}
 
-if ( ! filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-    die("Invalid email address!");
-}
-
-if (strlen($_POST['password']) < 8) {
-    die("Password must be at least 8 characters long!");
-}
-
-if ( ! preg_match("/[a-z]/i", $_POST['password'])) {
-    die("Password must contain at least one lowercase letter!");
-};
-if ( ! preg_match("/[A-Z]/i", $_POST['password'])) {
-    die("Password must contain at least one uppercase letter!");
-};
-if ( ! preg_match("/[0-9]/i", $_POST['password'])) {
-    die("Password must contain at least one number!");
-};
-
-if ($_POST['password'] !== $_POST['confirm_password']) {
-    die("Passwords do not match!");
-}
-*/
 if (isset($_POST['register'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
