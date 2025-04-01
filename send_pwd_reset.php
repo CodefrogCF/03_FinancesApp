@@ -22,7 +22,7 @@ if ($conn->affected_rows) {
 
     $mail = require __DIR__ . '/mailer.php';
 
-    $mail->setFrom("info@ccfpv.cc");
+    $mail->setFrom($_ENV['MAIL_USERNAME']);
     $mail->addAddress($email);
     $mail->Subject = "Password reset";
     $mail->Body = <<<END
