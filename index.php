@@ -8,6 +8,7 @@ $errors = [
 ];
 
 $successMessage = $_SESSION['register-success'] ?? '';
+$resetSuccess = $_SESSION['reset-success'] ?? '';
 
 $activeForm = $_SESSION['active_form'] ?? 'login';
 
@@ -24,6 +25,7 @@ function showSuccess($message) {
 function isActiveForm($formName, $activeForm) {
     return $formName === $activeForm ? 'active' : '';
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -49,11 +51,13 @@ function isActiveForm($formName, $activeForm) {
             <form action="login_register.php" method="post">
                 <h2>Login</h2>
                 <?= showSuccess($successMessage); ?>
+                <?= showSuccess($resetSuccess); ?>
                 <?= showError($errors['login']); ?>
                 <input type="email" autocomplete="email" placeholder="Email" name="email" required>
                 <input type="password" autocomplete="off" spellcheck="false" placeholder="Password" name="password" required>
                 <button type="submit" name="login">Login</button>
                 <p>Don't have an account? <a href="#" onclick="showForm('register-form')">Sign Up</a></p>
+                <p>Forgot password? <a href="#" onclick="showForm('forgot-password-form')">Click here</a></p>
             </form>
         </div>
 
@@ -77,7 +81,18 @@ function isActiveForm($formName, $activeForm) {
             </form>
         </div>
 
+        <!-- FORGOT PASSWORD FORM -->
+        <div class="form-box <?= isActiveForm('forgot-password', $activeForm); ?>" id="forgot-password-form">
+            <form action="send_pwd_reset.php" method="post">
+                <h2>Forgot Password</h2>
+                <input type="email" autocomplete="email" placeholder="Email" name="email" required>
+                <button type="submit" name="forgot-password">Submit</button>
+                <p>Back to the <a href="#" onclick="showForm('login-form')">Login</a></p>
+            </form>
+        </div>
+
     </div>
+
     <div class="footer">
         <img src="./assets/images/logo_black_transparent.webp" width="200px" onclick="frog()">
     </div>

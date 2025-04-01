@@ -52,7 +52,7 @@ if (isset($_POST['register'])) {
     $password_hashed = password_hash($password, PASSWORD_DEFAULT);
     $task_db = "tasks_$name";
     $conn->query("INSERT INTO users (name, email, password, role, user_db) VALUES ('$name', '$email', '$password_hashed', '$role', '$task_db')");
-    $conn->query("CREATE TABLE `$task_db` (`id` INT UNSIGNED NOT NULL AUTO_INCREMENT , `task_name` VARCHAR(255) NOT NULL , `task_value` FLOAT NOT NULL , `task_schedule` VARCHAR(255) NOT NULL , `task_isActive` VARCHAR(10) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;");
+    $conn->query("CREATE TABLE `$task_db` (`id` INT UNSIGNED NOT NULL AUTO_INCREMENT , `task_name` VARCHAR(255) NOT NULL , `task_value` FLOAT NOT NULL , `task_schedule` VARCHAR(20) NOT NULL , `task_isActive` VARCHAR(10) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;");
     $conn->query("INSERT INTO $task_db (task_name, task_value, task_schedule, task_isActive) VALUES ('$name-Test-Task', '12.34', 'monthly', 'inactive')");
 
     $_SESSION['register-success'] = "Account created successfully!";
