@@ -66,7 +66,7 @@ $sql = "UPDATE users
         WHERE id = ?";
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("si", $password_hashed, $user['id']);
+$stmt->bind_param("ss", $password_hashed, $user['id']);
 $stmt->execute();
 
 $_SESSION['reset-success'] = "Your password has been reset.";
