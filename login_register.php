@@ -55,6 +55,8 @@ if (isset($_POST['register'])) {
     $conn->query("CREATE TABLE `$task_db` (`id` INT UNSIGNED NOT NULL AUTO_INCREMENT , `task_name` VARCHAR(255) NOT NULL , `task_value` FLOAT NOT NULL , `task_schedule` VARCHAR(255) NOT NULL , `task_isActive` VARCHAR(10) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;");
     $conn->query("INSERT INTO $task_db (task_name, task_value, task_schedule, task_isActive) VALUES ('$name-Test-Task', '12.34', 'monthly', 'inactive')");
 
+    $_SESSION['register-success'] = "Account created successfully!";
+    $_SESSION['active_form'] = 'login';
     header("Location: index.php");
     exit();
 }

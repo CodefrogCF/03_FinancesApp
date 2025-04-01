@@ -138,6 +138,16 @@ button:hover {
     margin-bottom: 20px;
 }
 
+.success-message {
+    padding: 12px;
+    background: #d8f8d7;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #26b24b;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .page-container {
     display: flex;
     justify-content: center;
