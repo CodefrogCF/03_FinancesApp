@@ -71,6 +71,7 @@ if (isset($_POST['login'])) {
         if (password_verify($password, $user['password'])) {
             $_SESSION['name'] = $user['name'];
             $_SESSION['email'] = $user['email'];
+            $_SESSION['role'] = $user['role'];
             
             if ($user['role'] === 'admin') {
                 header("Location: admin_page.php");

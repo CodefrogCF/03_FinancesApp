@@ -16,12 +16,33 @@ $sql = "UPDATE users
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("sss", $token_hash, $expiry, $email);
 
-if ($stmt->execute()) {
-    $_SESSION['reset-success'] = "Password reset token created successfully!";
-    $_SESSION['active_form'] = 'login';
-    header("Location: index.php");
-    exit();
-};
+$stmt->execute();
+
+if ($conn->affected_rows) {
+
+    $mail = require __DIR__ . '/mailer.php';
+
+    $mail->setFrom("info@ccfpv.cc");
+    $mail->addAddress($email);
+    $mail->Subject = "Password reset";
+    $mail->Body = <<<END
+
+    Click <a href="PLACEHOLDER">here</a> to reset your password.
+
+    END;
+
+    try {
+        $mail->send();
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+
+}
+
+$_SESSION['reset-success'] = "Password reset token created successfully! Check your email.";
+$_SESSION['active_form'] = 'login';
+header("Location: index.php");
+exit();
 
 $stmt->close();
 $conn->close();
