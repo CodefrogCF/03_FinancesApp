@@ -27,7 +27,7 @@ if ($conn->affected_rows) {
     $mail->Subject = "Password reset";
     $mail->Body = <<<END
 
-    Click <a href="PLACEHOLDER">here</a> to reset your password.
+    Click <a href="https://frogfinances.rf.gd/reset_pwd.php?token=$token">here</a> to reset your password.
 
     END;
 
@@ -39,7 +39,7 @@ if ($conn->affected_rows) {
 
 }
 
-$_SESSION['reset-success'] = "Password reset token created successfully! Check your email.";
+$_SESSION['reset-success'] = "Your password reset link has been sent to your email address.";
 $_SESSION['active_form'] = 'login';
 header("Location: index.php");
 exit();
