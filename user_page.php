@@ -54,7 +54,7 @@ function isActiveForm($formName, $activeForm) {
             <div class="page-container" id="page-container">
                 <div class="box <?= isActiveForm('welcome', $activeForm); ?>" id="welcome">
                     <center><h1 class="welcome-text">Welcome, <span><?= $_SESSION['name'] ?></span></h1></center>
-                    <p>This is an <span>user</span> page</p>
+                    <!--<p>This is an <span>user</span> page</p>-->
                     <?= showSuccess($taskSuccess); ?>
                     <p><?php while ($row = $tasks->fetch_assoc()) {echo(implode(", ", $row)."<br>");} ?></p>
                     <button class="btn-primary" onclick="showForm('add-task')">Add task</button>
