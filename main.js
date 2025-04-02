@@ -15,6 +15,16 @@ function showForm(formId) {
     }
 }
 
+function showFormLandingPage(formId) {
+    document.querySelectorAll('.form-box').forEach(form => {
+        form.classList.remove('active');
+        form.style.display = 'none';
+    });
+    var activeForm = document.getElementById(formId);
+    activeForm.classList.add('active');
+    activeForm.style.display = 'block';
+}
+
 // important frog function
 function frog() {
     console.log("Ribbit!");

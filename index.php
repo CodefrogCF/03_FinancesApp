@@ -56,8 +56,8 @@ function isActiveForm($formName, $activeForm) {
                 <input type="email" autocomplete="email" placeholder="Email" name="email" required>
                 <input type="password" autocomplete="off" spellcheck="false" placeholder="Password" name="password" required>
                 <button type="submit" name="login">Login</button>
-                <p>Don't have an account? <a href="#" onclick="showForm('register-form')">Sign Up</a></p>
-                <p>Forgot password? <a href="#" onclick="showForm('forgot-password-form')">Click here</a></p>
+                <p>Don't have an account? <a href="#" onclick="showFormLandingPage('register-form')">Sign Up</a></p>
+                <p>Forgot password? <a href="#" onclick="showFormLandingPage('forgot-password-form')">Click here</a></p>
             </form>
         </div>
 
@@ -77,7 +77,7 @@ function isActiveForm($formName, $activeForm) {
                 <input type="password" autocomplete="off" spellcheck="false" placeholder="Password" name="password" required>
                 <input type="password" autocomplete="off" spellcheck="false" placeholder="Confirm password" name="confirm_password" required>
                 <button type="submit" name="register">Register</button>
-                <p>Already have an account? <a href="#" onclick="showForm('login-form')">Login</a></p>
+                <p>Already have an account? <a href="#" onclick="showFormLandingPage('login-form')">Login</a></p>
             </form>
         </div>
 
@@ -87,7 +87,7 @@ function isActiveForm($formName, $activeForm) {
                 <h2>Forgot Password</h2>
                 <input type="email" autocomplete="email" placeholder="Email" name="email" required>
                 <button type="submit" name="forgot-password">Submit</button>
-                <p>Back to the <a href="#" onclick="showForm('login-form')">Login</a></p>
+                <p>Back to the <a href="#" onclick="showFormLandingPage('login-form')">Login</a></p>
             </form>
         </div>
 
