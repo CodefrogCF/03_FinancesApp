@@ -83,7 +83,7 @@ function isActiveForm($formName, $activeForm) {
                     </select>
                     <input type="text" value="active" name="task_isActive" hidden>
                     <button class="btn-primary" type="submit" name="add-task">Add task</button>
-                    <button class="btn-reset" type="reset">Reset</button>
+                    <!--<button class="btn-reset" type="reset">Reset</button>-->
                     <button class="btn-primary" type="button" onclick="showForm('welcome')">Back</button>
                 </form>
             </div>
