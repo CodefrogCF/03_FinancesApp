@@ -1,5 +1,5 @@
 function showForm(formId) {
-    document.querySelectorAll('.form-box, .box, .page-container').forEach(form => {
+    document.querySelectorAll('.form-box, .box').forEach(form => {
         form.classList.remove('active');
         form.style.display = 'none';
     });
@@ -7,7 +7,7 @@ function showForm(formId) {
     activeForm.classList.add('active');
     activeForm.style.display = 'block';
 
-    var pageContainer = document.querySelector('.page-container');
+    var pageContainer = document.getElementById('page-container');
     if (formId === 'welcome') {
         pageContainer.style.display = 'flex';
     } else {

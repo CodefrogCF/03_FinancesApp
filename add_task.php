@@ -14,19 +14,19 @@ $task_db = "tasks_$name";
 
 $errors = [];
 
-if (!preg_match("/^[a-zA-Z0-9_]+$/", $task_name)) {
-    $errors[] = "Task name can only contain letters, numbers, and underscores!";
+if (!preg_match("/^[a-zA-Z0-9 ]+$/", $task_name)) {
+    $errors[] = "Task name can only contain letters, numbers, and spaces!";
 }
 
 if (!preg_match("/^[0-9.]+$/", $task_value)) {
     $errors[] = "Task value can only contain numbers and dots!";
 }
 
-if (!preg_match("/^[a-z]+$/", $task_schedule)) {
+if (empty($task_schedule)) {
     $errors[] = "Task schedule can only contain letters!";
 }
 
-if (!preg_match("/^[a-z]+$/", $task_isActive)) {
+if (empty($task_isActive)) {
     $errors[] = "Task isActive can only contain letters!";
 }
 

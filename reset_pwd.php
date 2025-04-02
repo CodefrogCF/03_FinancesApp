@@ -40,8 +40,8 @@ function showError($error) {
 <body>
 
     <div class="header">
-        <a href="#"><img src="./assets/images/logo-192x192.webp" class="logo"></a>
-        <a href="#"><h1>FinancesApp</h1></a>
+        <a href=""><img src="./assets/images/logo-192x192.webp" class="logo"></a>
+        <a href=""><h1>FinancesApp</h1></a>
     </div>
 
     <div class="container">
@@ -58,7 +58,7 @@ function showError($error) {
                 <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
                 <input type="password" id="password" autocomplete="off" spellcheck="false" placeholder="New password" name="password" required>
                 <input type="password" id="password_confirmation" autocomplete="off" spellcheck="false" placeholder="Confirm password" name="password_confirmation" required>
-                <button type="submit" name="reset-password">Reset Password</button>
+                <button class="btn-primary" type="submit" name="reset-password">Reset Password</button>
             </form>
         </div>
     </div>

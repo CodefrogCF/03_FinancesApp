@@ -33,7 +33,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] != 'admin') {
                 <h1 class="welcome-text">Welcome, <span><?= $_SESSION['name'] ?></span></h1>
                 <p>This is an <span>admin</span> page</p>
                 <img src="./assets/images/frog-3312038.webp" style="margin-bottom:20px" width="200px" onclick="frog()">
-                <button onclick="window.location.href='logout.php'">Logout</button>
+                <button class="btn-primary" onclick="window.location.href='logout.php'">Logout</button>
             </div>
         </div>
     </div>

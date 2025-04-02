@@ -2,6 +2,11 @@
 
 session_start();
 
+if (isset($_SESSION['email'])) {
+    header("Location: user_page.php");
+    exit();
+}
+
 $errors = [
     'login' => $_SESSION['login_error'] ?? '',
     'register' => $_SESSION['register-errors'] ?? []
@@ -55,7 +60,7 @@ function isActiveForm($formName, $activeForm) {
                 <?= showError($errors['login']); ?>
                 <input type="email" autocomplete="email" placeholder="Email" name="email" required>
                 <input type="password" autocomplete="off" spellcheck="false" placeholder="Password" name="password" required>
-                <button type="submit" name="login">Login</button>
+                <button class="btn-primary" type="submit" name="login">Login</button>
                 <p>Don't have an account? <a href="#" onclick="showFormLandingPage('register-form')">Sign Up</a></p>
                 <p>Forgot password? <a href="#" onclick="showFormLandingPage('forgot-password-form')">Click here</a></p>
             </form>
@@ -76,7 +81,7 @@ function isActiveForm($formName, $activeForm) {
                 <input type="email" autocomplete="email" placeholder="Email" name="email" required>
                 <input type="password" autocomplete="off" spellcheck="false" placeholder="Password" name="password" required>
                 <input type="password" autocomplete="off" spellcheck="false" placeholder="Confirm password" name="confirm_password" required>
-                <button type="submit" name="register">Register</button>
+                <button class="btn-primary" type="submit" name="register">Register</button>
                 <p>Already have an account? <a href="#" onclick="showFormLandingPage('login-form')">Login</a></p>
             </form>
         </div>
@@ -86,7 +91,7 @@ function isActiveForm($formName, $activeForm) {
             <form action="send_pwd_reset.php" method="post">
                 <h2>Forgot Password</h2>
                 <input type="email" autocomplete="email" placeholder="Email" name="email" required>
-                <button type="submit" name="forgot-password">Submit</button>
+                <button class="btn-primary" type="submit" name="forgot-password">Submit</button>
                 <p>Back to the <a href="#" onclick="showFormLandingPage('login-form')">Login</a></p>
             </form>
         </div>
