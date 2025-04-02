@@ -189,6 +189,7 @@ select {
     background-color: rgb(88, 88, 88);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     border-radius: 1rem;
+    overflow: scroll;
 }
 
 .box {
