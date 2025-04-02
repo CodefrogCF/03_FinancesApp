@@ -53,7 +53,7 @@ function isActiveForm($formName, $activeForm) {
             <?php if ($activeForm === 'welcome'): ?>
             <div class="page-container" id="page-container">
                 <div class="box <?= isActiveForm('welcome', $activeForm); ?>" id="welcome">
-                    <h1 class="welcome-text">Welcome, <span><?= $_SESSION['name'] ?></span></h1>
+                    <center><h1 class="welcome-text">Welcome, <span><?= $_SESSION['name'] ?></span></h1></center>
                     <p>This is an <span>user</span> page</p>
                     <?= showSuccess($taskSuccess); ?>
                     <p><?php while ($row = $tasks->fetch_assoc()) {echo(implode(", ", $row)."<br>");} ?></p>
