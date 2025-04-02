@@ -1,6 +1,18 @@
 function showForm(formId) {
-    document.querySelectorAll(".form-box").forEach(form => form.classList.remove("active"));
-    document.getElementById(formId).classList.add("active");
+    document.querySelectorAll('.form-box, .box, .page-container').forEach(form => {
+        form.classList.remove('active');
+        form.style.display = 'none';
+    });
+    var activeForm = document.getElementById(formId);
+    activeForm.classList.add('active');
+    activeForm.style.display = 'block';
+
+    var pageContainer = document.querySelector('.page-container');
+    if (formId === 'welcome') {
+        pageContainer.style.display = 'flex';
+    } else {
+        pageContainer.style.display = 'none';
+    }
 }
 
 // important frog function

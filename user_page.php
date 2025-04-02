@@ -50,8 +50,8 @@ function isActiveForm($formName, $activeForm) {
         <a href=""><h1>FinancesApp</h1></a>
     </div>
         <div class="container">
-            <!--<div class="page-container">-->
-                <div class="form-box <?= isActiveForm('welcome', $activeForm); ?>" id="welcome">
+            <div class="page-container" id="page-container">
+                <div class="box <?= isActiveForm('welcome', $activeForm); ?>" id="welcome">
                     <h1 class="welcome-text">Welcome, <span><?= $_SESSION['name'] ?></span></h1>
                     <p>This is an <span>user</span> page</p>
                     <?= showSuccess($taskSuccess); ?>
@@ -59,25 +59,25 @@ function isActiveForm($formName, $activeForm) {
                     <button onclick="showForm('add-task')">Add task</button>
                     <button onclick="window.location.href='logout.php'">Logout</button>
                 </div>
+            </div>
 
-                <div class="form-box <?= isActiveForm('add-task', $activeForm); ?>" id="add-task">
-                    <?php
-                    if (!empty($errors['add-task-errors'])) {
-                        foreach ($errors['add-task-errors'] as $error) {
-                            echo showError($error);
-                        }
+            <div class="form-box <?= isActiveForm('add-task', $activeForm); ?>" id="add-task">
+                <?php
+                if (!empty($errors['add-task-errors'])) {
+                    foreach ($errors['add-task-errors'] as $error) {
+                        echo showError($error);
                     }
-                    ?>
-                    <form action="add_task.php" method="post">
-                        <input type="text" placeholder="Task name" name="task_name" required>
-                        <input type="float" placeholder="Task value" name="task_value" required>
-                        <input type="text" placeholder="Task schedule" name="task_schedule" required>
-                        <input type="text" placeholder="Task isActive" name="task_isActive" required>
-                        <button type="submit" name="add-task">Add task</button>
-                        <button onclick="showForm('welcome')">Back</button>
-                    </form>
-                </div>
-            <!--</div>-->
+                }
+                ?>
+                <form action="add_task.php" method="post">
+                    <input type="text" placeholder="Task name" name="task_name" required>
+                    <input type="float" placeholder="Task value" name="task_value" required>
+                    <input type="text" placeholder="Task schedule" name="task_schedule" required>
+                    <input type="text" placeholder="Task isActive" name="task_isActive" required>
+                    <!--<button type="submit" name="add-task">Add task</button>-->
+                    <button type="button" onclick="showForm('welcome')">Back</button>
+                </form>
+            </div>
         </div>
 
     <div class="footer">
