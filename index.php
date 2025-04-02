@@ -15,11 +15,11 @@ $activeForm = $_SESSION['active_form'] ?? 'login';
 session_unset();
 
 function showError($error) {
-    return !empty($error) ? "<p class='error-message'>$error</p>" : '';
+    return !empty($error) ? "<p class='error-message' id='error-message'>$error</p>" : '';
 }
 
 function showSuccess($message) {
-    return !empty($message) ? "<p class='success-message'>$message</p>" : '';
+    return !empty($message) ? "<p class='success-message' id='success-message'>$message</p>" : '';
 }
 
 function isActiveForm($formName, $activeForm) {
@@ -41,8 +41,8 @@ function isActiveForm($formName, $activeForm) {
 <body>
 
     <div class="header">
-        <a href="#"><img src="./assets/images/logo-192x192.webp" class="logo"></a>
-        <a href="#"><h1>FinancesApp</h1></a>
+        <a href=""><img src="./assets/images/logo-192x192.webp" class="logo"></a>
+        <a href=""><h1>FinancesApp</h1></a>
     </div>
     <div class="container">
 

@@ -137,6 +137,7 @@ button:hover {
 }
 
 .error-message {
+    display: block;
     padding: 12px;
     background: #f8d7da;
     border-radius: 6px;
@@ -144,9 +145,12 @@ button:hover {
     color: #a42834;
     text-align: center;
     margin-bottom: 20px;
+    opacity: 1;
+    transition: opacity 1s;
 }
 
 .success-message {
+    display: block;
     padding: 12px;
     background: #d8f8d7;
     border-radius: 6px;
@@ -154,6 +158,8 @@ button:hover {
     color: #26b24b;
     text-align: center;
     margin-bottom: 20px;
+    opacity: 1;
+    transition: opacity 1s;
 }
 
 .page-container {
