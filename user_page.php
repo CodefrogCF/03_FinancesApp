@@ -81,7 +81,7 @@ function isActiveForm($formName, $activeForm) {
                         <option value="quarterly">Quarterly</option>
                         <option value="yearly">Yearly</option>
                     </select>
-                    <input type="text" value="active" name="task_isActive" hidden>
+                    <input type="text" value="active" name="task_isActive" hidden required>
                     <button class="btn-primary" type="submit" name="add-task">Add task</button>
                     <!--<button class="btn-reset" type="reset">Reset</button>-->
                     <button class="btn-primary" type="button" onclick="showForm('welcome')">Back</button>
