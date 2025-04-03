@@ -79,7 +79,7 @@ function isActiveForm($formName, $activeForm) {
 
                     <table class="table">
                         <tr>
-                            <td>id</td>
+                            <!--<td>id</td>-->
                             <td>task</td>
                             <td>value</td>
                             <td>schedule</td>
@@ -89,7 +89,7 @@ function isActiveForm($formName, $activeForm) {
                         while ($row = $tasks->fetch_assoc()) {
                         ?>
                         <tr>
-                            <td><?=$row['id']?></td>
+                            <!--<td></?=$row['id']?></td>-->
                             <td><?=$row['task_name']?></td>
                             <td><?=number_format($row['task_value'], 2, '.', '')?>$</td>
                             <td><?=$row['task_schedule']?></td>
