@@ -56,7 +56,29 @@ function isActiveForm($formName, $activeForm) {
                     <center><h1 class="welcome-text">Welcome, <span><?= $_SESSION['name'] ?></span></h1></center>
                     <!--<p>This is an <span>user</span> page</p>-->
                     <?= showSuccess($taskSuccess); ?>
-                    <p><?php while ($row = $tasks->fetch_assoc()) {echo(implode(", ", $row)."<br>");} ?></p>
+
+                    <table>
+                        <tr>
+                            <td>task_name</td>
+                            <td>task_value</td>
+                            <td>task_schedule</td>
+                            <td>task_isActive</td>
+                        </tr>
+                        <?PHP
+                        while ($row = $tasks->fetch_assoc()) {
+                        ?>
+                        <tr>
+                            <td><?=$row['task_name']?></td>
+                            <td><?=$row['task_value']?></td>
+                            <td><?=$row['task_schedule']?></td>
+                            <td><?=$row['task_isActive']?></td>
+                        </tr>
+                        <?PHP
+                        }
+                        ?>
+                    </table>
+
+                    <!--<p><?php /*while ($row = $tasks->fetch_assoc()) {echo(implode(", ", $row)."<br>");}*/ ?></p>-->
                     <button class="btn-primary" onclick="showForm('add-task')">Add task</button>
                     <button class="btn-primary" onclick="window.location.href='logout.php'">Logout</button>
                 </div>
@@ -89,9 +111,9 @@ function isActiveForm($formName, $activeForm) {
             </div>
         </div>
 
-    <div class="footer">
+    <!--<div class="footer">
         <img src="./assets/images/logo_black_transparent.webp" width="200px" onclick="frog()">
-    </div>
+    </div>-->
 
     <script src="main.js"></script>
 
