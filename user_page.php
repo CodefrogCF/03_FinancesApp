@@ -14,6 +14,12 @@ $tasksValue = $conn->query("SELECT SUM(task_value) AS total_value FROM `usr_web3
 $sumRow = $tasksValue->fetch_assoc();
 $totalValue = number_format($sumRow['total_value'], 2, '.', '');
 
+$taskNamesResult = $conn->query("SELECT task_name FROM `usr_web33_2`.`tasks_$name`");
+$taskNames = [];
+while ($row = $taskNamesResult->fetch_assoc()) {
+    $taskNames[] = $row['task_name'];
+}
+
 $taskSuccess = $_SESSION['add-task-success'] ?? '';
 $activeForm = $_SESSION['active_form'] ?? 'welcome';
 $errors = $_SESSION['add-task-errors'] ?? [];
@@ -132,7 +138,12 @@ function isActiveForm($formName, $activeForm) {
 
             <div class="form-box <?= isActiveForm('remove-task', $activeForm); ?>" id="remove-task">
                 <form action="remove_task.php" method="post">
-                    <input type="number" placeholder="Task index" name="task_index" required>
+                    <select name="task_name" required>
+                        <option value="" disabled selected>Select Task</option>
+                        <?php foreach ($taskNames as $task): ?>
+                        <option value="<?= $task ?>"><?= $task ?></option>
+                        <?php endforeach; ?>
+                    </select>
                     <div class="btn-container">
                         <!--<button class="btn-primary" onclick="window.location.href='logout.php'">Logout</button>-->
                         <button class="btn-primary" type="button" onclick="showForm('welcome')">Back</button>
