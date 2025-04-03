@@ -93,6 +93,22 @@ select {
     overflow: scroll;
 }
 
+tbody {
+    display: block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid #333;
+    border-radius: 1rem;
+    padding: 10px;
+    overflow: scroll;
+    max-height: 43vh;
+}
+
+@media screen and (max-width: 768px) {
+    tbody {
+        max-height: 25vh;
+    }
+}
+
 tr {
     display: table-header-group;
 }
