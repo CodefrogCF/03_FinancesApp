@@ -88,16 +88,20 @@ select {
 }
 
 .table {
-    padding: 0px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
     margin-bottom: 20px;
-    overflow: scroll;
 }
 
 tbody {
     display: block;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 1rem;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
     overflow: scroll;
     max-height: 43vh;
     background-color: rgb(131, 131, 131);
@@ -106,6 +110,7 @@ tbody {
 @media screen and (max-width: 768px) {
     tbody {
         max-height: 25vh;
+        padding: 20px;
     }
 }
 
