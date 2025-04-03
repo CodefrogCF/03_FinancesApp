@@ -111,9 +111,9 @@ function isActiveForm($formName, $activeForm) {
             </div>
         </div>
 
-    <!--<div class="footer">
+    <div class="footer">
         <img src="./assets/images/logo_black_transparent.webp" width="200px" onclick="frog()">
-    </div>-->
+    </div>
 
     <script src="main.js"></script>
 
