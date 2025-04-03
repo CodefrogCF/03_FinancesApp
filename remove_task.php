@@ -22,7 +22,7 @@ if ($stmt->num_rows === 0) {
 
 if (!empty($errors)) {
     $_SESSION['remove-task-errors'] = $errors;
-    $_SESSION['active_form'] = 'remove-task';
+    $_SESSION['active_form'] = 'welcome';
     header("Location: user_page.php");
     exit();
 }

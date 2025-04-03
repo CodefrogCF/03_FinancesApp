@@ -18,8 +18,8 @@ $taskSuccess = $_SESSION['add-task-success'] ?? '';
 $activeForm = $_SESSION['active_form'] ?? 'welcome';
 $errors = $_SESSION['add-task-errors'] ?? [];
 unset($_SESSION['add-task-errors']);
-/*$errorsRemoveTask = $_SESSION['remove-task-errors'] ?? [];
-unset($_SESSION['remove-task-errors']);*/
+$errorsRemoveTask = $_SESSION['remove-task-errors'] ?? [];
+unset($_SESSION['remove-task-errors']);
 
 
 function showSuccess($message) {
@@ -63,6 +63,13 @@ function isActiveForm($formName, $activeForm) {
                     <center><h1 class="welcome-text">Welcome, <span><?= $_SESSION['name'] ?></span></h1></center>
                     <p>Total Value of <span>Active</span> Tasks: <?= $totalValue ?>$</p>
                     <?= showSuccess($taskSuccess); ?>
+                    <?php
+                    if (!empty($errorsRemoveTask)) {
+                        foreach ($errorsRemoveTask as $error) {
+                            echo showError($error);
+                        }
+                    }
+                    ?>
 
                     <table class="table">
                         <tr>
@@ -124,13 +131,6 @@ function isActiveForm($formName, $activeForm) {
             </div>
 
             <div class="form-box <?= isActiveForm('remove-task', $activeForm); ?>" id="remove-task">
-                <?php
-                if (!empty($errorsRemoveTask)) {
-                    foreach ($errorsRemoveTask as $error) {
-                        echo showError($error);
-                    }
-                }
-                ?>
                 <form action="remove_task.php" method="post">
                     <input type="number" placeholder="Task index" name="task_index" required>
                     <div class="btn-container">
