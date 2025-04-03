@@ -10,6 +10,9 @@ require_once 'config.php';
 
 $name = $_SESSION['name'];
 $tasks = $conn->query("SELECT task_name, task_value, task_schedule, task_isActive FROM `usr_web33_2`.`tasks_$name`");
+$tasksValue = $conn->query("SELECT SUM(task_value) AS total_value FROM `usr_web33_2`.`tasks_$name` WHERE task_isActive = 'active'");
+$sumRow = $tasksValue->fetch_assoc();
+$totalValue = number_format($sumRow['total_value'], 2, '.', '');
 
 $taskSuccess = $_SESSION['add-task-success'] ?? '';
 $activeForm = $_SESSION['active_form'] ?? 'welcome';
@@ -49,15 +52,15 @@ function isActiveForm($formName, $activeForm) {
         <a href=""><h1>FinancesApp</h1></a>
     </div>
 
-        <div class="container">
+        <div class="user-container">
             <?php if ($activeForm === 'welcome'): ?>
             <div class="page-container" id="page-container">
                 <div class="box <?= isActiveForm('welcome', $activeForm); ?>" id="welcome">
                     <center><h1 class="welcome-text">Welcome, <span><?= $_SESSION['name'] ?></span></h1></center>
-                    <!--<p>This is an <span>user</span> page</p>-->
+                    <p>Total Value of <span>Active</span> Tasks: <?= $totalValue ?>$</p>
                     <?= showSuccess($taskSuccess); ?>
 
-                    <table>
+                    <table class="table">
                         <tr>
                             <td>task_name</td>
                             <td>task_value</td>
@@ -69,7 +72,7 @@ function isActiveForm($formName, $activeForm) {
                         ?>
                         <tr>
                             <td><?=$row['task_name']?></td>
-                            <td><?=$row['task_value']?></td>
+                            <td><?=number_format($row['task_value'], 2, '.', '')?>$</td>
                             <td><?=$row['task_schedule']?></td>
                             <td><?=$row['task_isActive']?></td>
                         </tr>
@@ -78,7 +81,6 @@ function isActiveForm($formName, $activeForm) {
                         ?>
                     </table>
 
-                    <!--<p><?php /*while ($row = $tasks->fetch_assoc()) {echo(implode(", ", $row)."<br>");}*/ ?></p>-->
                     <button class="btn-primary" onclick="showForm('add-task')">Add task</button>
                     <button class="btn-primary" onclick="window.location.href='logout.php'">Logout</button>
                 </div>
