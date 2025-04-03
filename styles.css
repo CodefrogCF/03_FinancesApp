@@ -34,6 +34,12 @@ p {
     margin-bottom: 10px;
 }
 
+@media screen and (max-width: 768px) {
+    p {
+        font-size: 11px;
+    }
+}
+
 p a {
     text-decoration: none;
     color: #26b24b;
@@ -47,6 +53,12 @@ h2 {
     font-size: 34px;
     text-align: center;
     margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    h2 {
+        font-size: 20px;
+    }
 }
 
 span {
@@ -66,6 +78,15 @@ select {
     margin-bottom: 20px;
 }
 
+@media screen and (max-width: 768px) {
+    input, select {
+        font-size: 11px;
+        height: 30px;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+}
+
 .table {
     padding: 0px;
     margin-bottom: 20px;
@@ -74,7 +95,6 @@ select {
 
 tr {
     display: table-header-group;
-    margin-bottom: 10px;
 }
 
 td {
@@ -86,7 +106,15 @@ td {
 @media screen and (max-width: 768px) {
     td {
         font-size: 11px;
+        padding: 3px;
     }
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .btn-primary {
@@ -99,12 +127,25 @@ td {
     font-size: 16px;
     color: #fff;
     font-weight: 500;
-    margin-bottom: 20px;
+    margin: 20px;
     transition: 0.5s;
 }
 
 .btn-primary:hover {
     background: #29c954;
+}
+
+@media screen and (max-width: 768px) {
+    .btn-primary {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        height: 30px;
+        padding: 10px;
+        font-size: 12px;
+        margin: 10px;
+    }
 }
 
 .btn-reset {
@@ -117,12 +158,25 @@ td {
     font-size: 16px;
     color: #fff;
     font-weight: 500;
-    margin-bottom: 20px;
+    margin: 20px;
     transition: 0.5s;
 }
 
 .btn-reset:hover {
     background: #c92929;
+}
+
+@media screen and (max-width: 768px) {
+    .btn-reset {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        height: 30px;
+        padding: 10px;
+        font-size: 12px;
+        margin: 10px;
+    }
 }
 
 .header {
@@ -178,10 +232,12 @@ td {
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     padding: 40px;
+    flex-direction: column;
+    align-items: center; 
 }
 
 .form-box.active {
-    display: block;
+    display: flex;
 }
 
 @media screen and (max-width: 768px) {

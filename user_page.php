@@ -9,7 +9,7 @@ if (!isset($_SESSION['email'])) {
 require_once 'config.php';
 
 $name = $_SESSION['name'];
-$tasks = $conn->query("SELECT task_name, task_value, task_schedule, task_isActive FROM `usr_web33_2`.`tasks_$name`");
+$tasks = $conn->query("SELECT id, task_name, task_value, task_schedule, task_isActive FROM `usr_web33_2`.`tasks_$name`");
 $tasksValue = $conn->query("SELECT SUM(task_value) AS total_value FROM `usr_web33_2`.`tasks_$name` WHERE task_isActive = 'active'");
 $sumRow = $tasksValue->fetch_assoc();
 $totalValue = number_format($sumRow['total_value'], 2, '.', '');
@@ -18,6 +18,9 @@ $taskSuccess = $_SESSION['add-task-success'] ?? '';
 $activeForm = $_SESSION['active_form'] ?? 'welcome';
 $errors = $_SESSION['add-task-errors'] ?? [];
 unset($_SESSION['add-task-errors']);
+/*$errorsRemoveTask = $_SESSION['remove-task-errors'] ?? [];
+unset($_SESSION['remove-task-errors']);*/
+
 
 function showSuccess($message) {
     return !empty($message) ? "<p class='success-message' id='success-message'>$message</p>" : '';
@@ -53,6 +56,7 @@ function isActiveForm($formName, $activeForm) {
     </div>
 
         <div class="user-container">
+
             <?php if ($activeForm === 'welcome'): ?>
             <div class="page-container" id="page-container">
                 <div class="box <?= isActiveForm('welcome', $activeForm); ?>" id="welcome">
@@ -62,15 +66,17 @@ function isActiveForm($formName, $activeForm) {
 
                     <table class="table">
                         <tr>
-                            <td>task_name</td>
-                            <td>task_value</td>
-                            <td>task_schedule</td>
-                            <td>task_isActive</td>
+                            <td>id</td>
+                            <td>task</td>
+                            <td>value</td>
+                            <td>schedule</td>
+                            <td>isActive</td>
                         </tr>
                         <?PHP
                         while ($row = $tasks->fetch_assoc()) {
                         ?>
                         <tr>
+                            <td><?=$row['id']?></td>
                             <td><?=$row['task_name']?></td>
                             <td><?=number_format($row['task_value'], 2, '.', '')?>$</td>
                             <td><?=$row['task_schedule']?></td>
@@ -81,8 +87,11 @@ function isActiveForm($formName, $activeForm) {
                         ?>
                     </table>
 
-                    <button class="btn-primary" onclick="showForm('add-task')">Add task</button>
-                    <button class="btn-primary" onclick="window.location.href='logout.php'">Logout</button>
+                    <div class="btn-container">
+                        <button class="btn-primary" onclick="window.location.href='logout.php'">Logout</button>
+                        <button class="btn-reset" onclick="showForm('remove-task')">Remove</button>
+                        <button class="btn-primary" onclick="showForm('add-task')">Add</button>
+                    </div>
                 </div>
             </div>
             <?php endif; ?>
@@ -106,11 +115,32 @@ function isActiveForm($formName, $activeForm) {
                         <option value="yearly">Yearly</option>
                     </select>
                     <input type="text" value="active" name="task_isActive" hidden required>
-                    <button class="btn-primary" type="submit" name="add-task">Add task</button>
-                    <!--<button class="btn-reset" type="reset">Reset</button>-->
-                    <button class="btn-primary" type="button" onclick="showForm('welcome')">Back</button>
+                    <div class="btn-container">
+                        <!--<button class="btn-reset" type="reset">Reset</button>-->
+                        <button class="btn-primary" type="button" onclick="showForm('welcome')">Back</button>
+                        <button class="btn-primary" type="submit" name="add-task">Add</button>
+                    </div>
                 </form>
             </div>
+
+            <div class="form-box <?= isActiveForm('remove-task', $activeForm); ?>" id="remove-task">
+                <?php
+                if (!empty($errorsRemoveTask)) {
+                    foreach ($errorsRemoveTask as $error) {
+                        echo showError($error);
+                    }
+                }
+                ?>
+                <form action="remove_task.php" method="post">
+                    <input type="number" placeholder="Task index" name="task_index" required>
+                    <div class="btn-container">
+                        <button class="btn-primary" onclick="window.location.href='logout.php'">Logout</button>
+                        <button class="btn-primary" type="button" onclick="showForm('welcome')">Back</button>
+                        <button class="btn-reset" type="submit" name="remove-task">Remove</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
 
     <div class="footer">

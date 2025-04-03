@@ -13,6 +13,15 @@ function showForm(formId) {
     } else {
         pageContainer.style.display = 'none';
     }
+/*
+    fetch('update_active_form.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ active_form: formId })
+    });*/
+
 }
 
 function showFormLandingPage(formId) {
