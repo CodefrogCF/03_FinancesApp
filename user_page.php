@@ -134,7 +134,7 @@ function isActiveForm($formName, $activeForm) {
                 <form action="remove_task.php" method="post">
                     <input type="number" placeholder="Task index" name="task_index" required>
                     <div class="btn-container">
-                        <button class="btn-primary" onclick="window.location.href='logout.php'">Logout</button>
+                        <!--<button class="btn-primary" onclick="window.location.href='logout.php'">Logout</button>-->
                         <button class="btn-primary" type="button" onclick="showForm('welcome')">Back</button>
                         <button class="btn-reset" type="submit" name="remove-task">Remove</button>
                     </div>
