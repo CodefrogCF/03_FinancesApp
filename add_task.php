@@ -42,7 +42,7 @@ $stmt = $conn->prepare($stmt);
 $stmt->bind_param("ssss", $task_name, $task_value, $task_schedule, $task_isActive);
 $stmt->execute();
 
-$_SESSION['add-task-success'] = "Task created successfully!";
+$_SESSION['add-task-success'] = "Task created!";
 $_SESSION['active_form'] = 'welcome';
 header("Location: user_page.php");
 exit();
