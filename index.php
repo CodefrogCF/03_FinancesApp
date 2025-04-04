@@ -50,7 +50,16 @@ function isActiveForm($formName, $activeForm) {
         <a href=""><h1>FinancesApp</h1></a>
     </div>
 
-
+    <div class="main-container">
+        <div class="title-card-container">
+            <div class="title-card">
+                <h1>Welcome to <span>FrogFinances</span></h1>
+                <p>A simple finances app to track your spendings</p>
+                <p>built with <span>PHP</span>, <span>HTML</span>, and <span>CSS</span>.</p>
+                <p>Sign up or log in to get started.</p>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
 
