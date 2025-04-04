@@ -102,8 +102,10 @@ tbody {
     padding-bottom: 10px;
     padding-left: 40px;
     padding-right: 40px;
-    overflow: scroll;
-    max-height: 43vh;
+    overflow-y: scroll;
+    scrollbar-color: #26b24b #777;
+    scrollbar-width: thin;
+    max-height: 35vh;
     background-color: rgb(131, 131, 131);
 }
 
@@ -316,7 +318,7 @@ td {
     justify-content: center;
     align-items: center;
     width: 80vw;
-    height: 100vh;
+    max-height: 85vh;
     margin-top: 2rem;
     margin-bottom: 2rem;
     background-color: rgb(88, 88, 88);

@@ -49,6 +49,9 @@ function isActiveForm($formName, $activeForm) {
         <a href=""><img src="./assets/images/logo-192x192.webp" class="logo"></a>
         <a href=""><h1>FinancesApp</h1></a>
     </div>
+
+
+
     <div class="container">
 
         <!-- LOGIN FORM -->
@@ -109,5 +112,11 @@ function isActiveForm($formName, $activeForm) {
     </div>
 
     <script src="main.js"></script>
+    <script>
+        // Ensure the login form is displayed on the first page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showFormLandingPage('login-form');
+        });
+    </script>
 </body>
 </html>
