@@ -75,8 +75,8 @@ function isActiveForm($formName, $activeForm) {
                 <div class="btn-container">
                     <button class="btn-primary" type="submit" name="login">Login</button>
                 </div>
-                <p>Don't have an account? <a href="#" onclick="showFormLandingPage('register-form')">Sign Up</a></p>
-                <p>Forgot password? <a href="#" onclick="showFormLandingPage('forgot-password-form')">Click here</a></p>
+                <p>Don't have an account? <span class="link" onclick="showFormLandingPage('register-form')">Sign Up</span></p>
+                <p>Forgot password? <span class="link" onclick="showFormLandingPage('forgot-password-form')">Click here</span></p>
             </form>
         </div>
 
@@ -98,7 +98,7 @@ function isActiveForm($formName, $activeForm) {
                 <div class="btn-container">
                     <button class="btn-primary" type="submit" name="register">Register</button>
                 </div>
-                <p>Already have an account? <a href="#" onclick="showFormLandingPage('login-form')">Login</a></p>
+                <p>Already have an account? <span class="link" onclick="showFormLandingPage('login-form')">Login</span></p>
             </form>
         </div>
 
@@ -110,7 +110,7 @@ function isActiveForm($formName, $activeForm) {
                 <div class="btn-container">
                     <button class="btn-primary" type="submit" name="forgot-password">Submit</button>
                 </div>
-                <p>Back to the <a href="#" onclick="showFormLandingPage('login-form')">Login</a></p>
+                <p>Back to the <span class="link" onclick="showFormLandingPage('login-form')">Login</span></p>
             </form>
         </div>
 
