@@ -55,13 +55,13 @@ function isActiveForm($formName, $activeForm) {
             <div class="title-card">
                 <h1>Welcome to <span>FrogFinances</span></h1>
                 <p>A simple finances app to track your spendings</p>
-                <p>built with <span>PHP</span>, <span>HTML</span>, and <span>CSS</span>.</p>
-                <p>Sign up or log in to get started.</p>
+                <p>built with PHP, HTML, JS, and CSS.</p>
+                <p><span class="link" onclick="scrollToRegisterForm()">Sign up</span> or <span class="link" onclick="scrollToLoginForm()">log in</span> to get started.</p>
             </div>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" id="login-register-container">
 
         <!-- LOGIN FORM -->
         <div class="form-box <?= isActiveForm('login', $activeForm); ?>" id="login-form">

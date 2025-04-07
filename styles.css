@@ -438,3 +438,8 @@ td {
         font-size: 25px;
     }
 }
+
+.link {
+    pointer-events: auto;
+    cursor: pointer;
+}

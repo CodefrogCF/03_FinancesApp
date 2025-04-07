@@ -61,3 +61,15 @@ function fadeOutMessages() {
 }
 
 fadeOutMessages();
+
+function scrollToRegisterForm() {
+    showFormLandingPage("register-form")
+    const element = document.getElementById("login-register-container");
+    element.scrollIntoView({behavior: "smooth"});
+}
+
+function scrollToLoginForm() {
+    showFormLandingPage("login-form")
+    const element = document.getElementById("login-register-container");
+    element.scrollIntoView({behavior: "smooth"});
+}
