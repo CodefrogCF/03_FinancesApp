@@ -83,6 +83,8 @@ if (isset($_POST['register'])) {
     exit();
 }
 
+// move to login.php
+
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];

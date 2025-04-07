@@ -27,7 +27,7 @@ if ($conn->affected_rows) {
     $mail->Subject = "Password reset";
     $mail->Body = <<<END
 
-    Click <a href="https://frogfinances.rf.gd/reset_pwd.php?token=$token">here</a> to reset your password.
+    Click <a href="https://frogfinances.tech/reset_pwd.php?token=$token">here</a> to reset your password.
 
     END;
 

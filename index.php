@@ -47,13 +47,13 @@ function isActiveForm($formName, $activeForm) {
 
     <div class="header">
         <a href=""><img src="./assets/images/logo-192x192.webp" class="logo"></a>
-        <a href=""><h1>FinancesApp</h1></a>
+        <a href=""><h1>Finances</h1></a>
     </div>
 
     <div class="main-container">
         <div class="title-card-container">
             <div class="title-card">
-                <h1>Welcome to <span>FrogFinances</span></h1>
+                <h2>Welcome to <span>FrogFinances</span></h2>
                 <p>A simple finances app to track your spendings</p>
                 <p>built with PHP, HTML, JS, and CSS.</p>
                 <p><span class="link" onclick="scrollToRegisterForm()">Sign up</span> or <span class="link" onclick="scrollToLoginForm()">log in</span> to get started.</p>

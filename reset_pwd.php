@@ -41,7 +41,7 @@ function showError($error) {
 
     <div class="header">
         <a href=""><img src="./assets/images/logo-192x192.webp" class="logo"></a>
-        <a href=""><h1>FinancesApp</h1></a>
+        <a href=""><h1>Finances</h1></a>
     </div>
 
     <div class="container">
