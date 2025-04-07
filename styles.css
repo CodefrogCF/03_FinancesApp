@@ -124,7 +124,7 @@ tbody {
 
 @media screen and (max-width: 768px) {
     tbody {
-        max-height: 25vh;
+        max-height: 35vh;
         width: 80vw;
         padding: 20px;
     }
