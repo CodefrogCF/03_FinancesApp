@@ -79,7 +79,6 @@ function isActiveForm($formName, $activeForm) {
 
                     <table class="table">
                         <tr>
-                            <!--<td>id</td>-->
                             <td>task</td>
                             <td>value</td>
                             <td>schedule</td>
@@ -89,7 +88,6 @@ function isActiveForm($formName, $activeForm) {
                         while ($row = $tasks->fetch_assoc()) {
                         ?>
                         <tr>
-                            <!--<td></?=$row['id']?></td>-->
                             <td><?=$row['task_name']?></td>
                             <td><?=number_format($row['task_value'], 2, '.', '')?>$</td>
                             <td><?=$row['task_schedule']?></td>
@@ -129,7 +127,6 @@ function isActiveForm($formName, $activeForm) {
                     </select>
                     <input type="text" value="active" name="task_isActive" hidden required>
                     <div class="btn-container">
-                        <!--<button class="btn-reset" type="reset">Reset</button>-->
                         <button class="btn-primary" type="button" onclick="showForm('welcome')">Back</button>
                         <button class="btn-primary" type="submit" name="add-task">Add</button>
                     </div>
@@ -145,7 +142,6 @@ function isActiveForm($formName, $activeForm) {
                         <?php endforeach; ?>
                     </select>
                     <div class="btn-container">
-                        <!--<button class="btn-primary" onclick="window.location.href='logout.php'">Logout</button>-->
                         <button class="btn-primary" type="button" onclick="showForm('welcome')">Back</button>
                         <button class="btn-reset" type="submit" name="remove-task">Remove</button>
                     </div>
