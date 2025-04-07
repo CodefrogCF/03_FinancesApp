@@ -226,6 +226,7 @@ td {
     background-color: rgb(88, 88, 88);
     height: 4rem;
     width: 100vw;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -311,6 +312,7 @@ td {
     background-color: rgb(88, 88, 88);
     height: 4rem;
     width: 100vw;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 .error-message {
