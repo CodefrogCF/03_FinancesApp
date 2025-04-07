@@ -67,7 +67,7 @@ if (isset($_POST['register'])) {
     $mail->Subject = "Account activation";
     $mail->Body = <<<END
 
-    Click <a href="https://frogfinances.rf.gd/activate_account.php?token=$activation_token">here</a> to activate your account.
+    Click <a href="https://frogfinances.tech/activate_account.php?token=$activation_token">here</a> to activate your account.
 
     END;
 
